@@ -22,12 +22,14 @@
   "license": "MIT",
   "dependencies": {
     "@eggjs/tegg": "^3.2.1",
+    "@eggjs/tegg-config": "^3.1.0",
     "@eggjs/tegg-controller-plugin": "^3.2.1",
     "@eggjs/tegg-plugin": "^3.2.1",
     "@eggjs/tsconfig": "^1.2.0",
-    "@eggjs/tegg-config": "^3.1.0",
+    "cnpmcore": "^3.43.4",
     "egg": "^3.9.1",
-    "egg-scripts": "^2.17.0"
+    "egg-scripts": "^2.17.0",
+    "eggjs-elasticsearch": "^0.0.6"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.1",

@@ -3,7 +3,7 @@ import { join } from 'path';
 import { EggAppConfig, PowerPartial } from 'egg';
 import OSSClient from 'oss-cnpm';
 import { patchAjv } from 'cnpmcore/port/typebox';
-import { SyncDeleteMode, SyncMode } from 'cnpmcore/common/constants';
+import { ChangesStreamMode, SyncDeleteMode, SyncMode } from 'cnpmcore/common/constants';
 
 export default (appInfo: EggAppConfig) => {
   const config = {} as PowerPartial<EggAppConfig>;
@@ -51,7 +51,7 @@ export default (appInfo: EggAppConfig) => {
     checkChangesStreamInterval: 500,
     changesStreamRegistry: 'https://replicate.npmjs.com',
     // handle _changes request mode, default is 'streaming', please set it to 'json' when on cnpmcore registry
-    changesStreamRegistryMode: 'streaming',
+    changesStreamRegistryMode: ChangesStreamMode.streaming,
     registry: 'http://localhost:7001',
     // https://docs.npmjs.com/cli/v6/using-npm/config#always-auth npm <= 6
     // if `alwaysAuth=true`, all api request required access token
@@ -86,6 +86,13 @@ export default (appInfo: EggAppConfig) => {
     syncNotFound: false,
     // redirect to source registry when package not found, only effect when syncMode = all/exist
     redirectNotFound: true,
+    enableElasticsearch: true,
+  };
+
+  config.elasticsearch = {
+    client: {
+      node: "http://localhost:9200"
+    }
   };
 
   // override config from framework / plugin

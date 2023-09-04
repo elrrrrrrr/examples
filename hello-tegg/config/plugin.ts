@@ -33,6 +33,10 @@ const plugin: EggPlugin = {
     enable: true,
     package: 'egg-typebox-validate',
   },
+  elasticsearch: {
+    enable: true,
+    package: "eggjs-elasticsearch",
+  },
 };
 
 export default plugin;
